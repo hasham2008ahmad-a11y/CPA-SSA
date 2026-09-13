@@ -71,6 +71,10 @@ body {
 h1, h2, h3, h4 { margin: 0; font-weight: 800; color: var(--navy); }
 p { margin: 0; }
 img { max-width: 100%; display: block; }
+/* Inline SVGs default to display:inline, which leaves baseline-descender
+   whitespace beneath them — the classic cause of icons looking vertically
+   off-center inside a flex-centered circle. Block display fixes it globally. */
+svg { display: block; }
 a { color: var(--navy); text-decoration: none; }
 ul { margin: 0; padding: 0; list-style: none; }
 button { font-family: inherit; }
@@ -268,15 +272,14 @@ button:focus-visible,
 }
 
 .logo {
-  font-size: 1.375rem;
-  font-weight: 800;
-  color: var(--navy);
-  letter-spacing: -0.6px;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   flex-shrink: 0;
   transition: opacity var(--dur) var(--ease);
 }
 .logo:hover { opacity: 0.75; }
+.logo-img { height: 44px; width: auto; }
 
 .site-nav {
   display: flex;
@@ -796,8 +799,11 @@ body.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate
 .footer-cols { display: flex; gap: 56px; flex-wrap: wrap; }
 .footer-col .heading { color: var(--cyan); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
 .footer-col .links { display: flex; flex-direction: column; gap: 10px; }
-.footer-col a { color: var(--white); font-size: 0.875rem; font-weight: 400; text-decoration: none; transition: opacity var(--dur) var(--ease), padding-left var(--dur) var(--ease); display: inline-block; }
-.footer-col a:hover { opacity: 0.75; padding-left: 4px; }
+/* Scoped to .links, not the whole .footer-col, so it doesn't also match
+   (and fight the display:flex centering of) the .social-btn icon buttons
+   that live in the sibling .social-row. */
+.footer-col .links a { color: var(--white); font-size: 0.875rem; font-weight: 400; text-decoration: none; transition: opacity var(--dur) var(--ease), padding-left var(--dur) var(--ease); display: inline-block; }
+.footer-col .links a:hover { opacity: 0.75; padding-left: 4px; }
 
 .footer-bottom {
   background: var(--bg-footer);
