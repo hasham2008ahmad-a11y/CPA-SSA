@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif; color: #3D4344; }
+  a { color: #002453; }
+  a:hover { color: #003DA6; }
+</style>
+</helmet>
+<dc-import name="Header" active-page="About" hint-size="100%,72px"></dc-import>
+<main>
+  <div style="max-width:1170px;margin:0 auto;padding:32px 50px 0">
+    <div style="fontSize:13px;color:#6F6F6F;marginBottom:16px"><a href="Home.dc.html" style="color:#6F6F6F;textDecoration:none">Home</a> / About</div>
+    <h1 style="color:#003DA6;fontSize:44px;fontWeight:800;letterSpacing:-1px;margin:0 0 48px">About Us</h1>
+  </div>
+
+  <section style="max-width:1170px;margin:0 auto;padding:0 50px 72px;display:grid;gridTemplateColumns:1.1fr 0.9fr;gap:56px;alignItems:start">
+    <div>
+      <h2 style="color:#002453;fontSize:26px;fontWeight:700;margin:0 0 16px">Our Mission</h2>
+      <p style="fontSize:16px;fontWeight:300;lineHeight:1.75;color:#3D4344;margin:0">The CPA Schulich Student Association exists to prepare Schulich students for careers in accounting and the CPA profession. We connect students with mentors, employers, and each other, and build a community around the CPA PEP pathway from first year onward.</p>
+    </div>
+    <div style="background:#002453;borderRadius:16px;padding:36px">
+      <div style="color:#7BF3FF;fontSize:13px;fontWeight:700;textTransform:uppercase;letterSpacing:0.08em;marginBottom:12px">Since</div>
+      <div style="color:#FFFFFF;fontSize:34px;fontWeight:800;letterSpacing:-0.5px">Est. at Schulich</div>
+      <div style="color:#C7D3E6;fontSize:15px;fontWeight:300;marginTop:10px;lineHeight:1.6">Run entirely by students, for students.</div>
+    </div>
+  </section>
+
+  <section style="background:#F3F3F3;padding:72px 50px">
+    <div style="max-width:1170px;margin:0 auto">
+      <h2 style="color:#002453;fontSize:26px;fontWeight:700;margin:0 0 40px;textAlign:center">What We Do</h2>
+      <div style="display:grid;gridTemplateColumns:repeat(auto-fit,minmax(240px,1fr));gap:32px">
+        <sc-for list="{{pillars}}" as="pillar" hint-placeholder-count="3">
+          <div>
+            <div style="width:48px;height:48px;borderRadius:50%;background:{{pillar.color}};marginBottom:16px"></div>
+            <div style="fontWeight:700;fontSize:18px;color:#002453;marginBottom:8px">{{pillar.title}}</div>
+            <div style="fontSize:15px;fontWeight:300;lineHeight:1.65;color:#3D4344">{{pillar.desc}}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#002453;padding:72px 50px">
+    <div style="max-width:1170px;margin:0 auto">
+      <h2 style="color:#FFFFFF;fontSize:26px;fontWeight:700;margin:0 0 24px;textAlign:center">Who We Serve</h2>
+      <div style="display:flex;gap:12px;flexWrap:wrap;justifyContent:center">
+        <sc-for list="{{audiences}}" as="audience" hint-placeholder-count="4">
+          <div style="padding:10px 20px;borderRadius:999px;background:{{audience.color}};color:#FFFFFF;fontWeight:700;fontSize:13px;letterSpacing:0.03em">{{audience.label}}</div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+</main>
+<dc-import name="Footer" hint-size="100%,300px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      pillars: [
+        { title: 'Professional Development', desc: 'Workshops on resumes, interviews, and the CPA PEP pathway.', color: '#003DA6' },
+        { title: 'Networking', desc: 'Direct access to firms, alumni, and CPA members.', color: '#0D7341' },
+        { title: 'Community', desc: 'Social events and a peer network across all years.', color: '#6D3885' },
+      ],
+      audiences: [
+        { label: 'First-Year Students', color: '#003DA6' },
+        { label: 'Upper-Year Students', color: '#0D7341' },
+        { label: 'CPA PEP Candidates', color: '#6D3885' },
+        { label: 'Alumni', color: '#002453' },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

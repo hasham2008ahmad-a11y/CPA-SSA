@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif; color: #3D4344; }
+  a { color: #002453; }
+  a:hover { color: #003DA6; }
+</style>
+</helmet>
+<dc-import name="Header" active-page="PSAP" hint-size="100%,72px"></dc-import>
+<main>
+  <section style="background:#002453;position:relative;overflow:hidden;padding:96px 50px 110px">
+    <img src="assets/psap-hero.avif" style="position:absolute;top:0;right:0;width:100%;height:100%;objectFit:cover;opacity:0.9" alt="PSAP event">
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, #002453 34%, rgba(0,36,83,0.5) 62%, rgba(0,36,83,0.35) 100%)"></div>
+    <div style="max-width:1170px;margin:0 auto;position:relative;zIndex:2">
+      <div style="color:#7BF3FF;fontWeight:700;fontSize:13px;letterSpacing:0.1em;textTransform:uppercase;marginBottom:18px">CPA Ontario Program</div>
+      <h1 style="color:#FFFFFF;fontWeight:800;fontSize:48px;letterSpacing:-1.2px;lineHeight:1.1;margin:0 0 22px;maxWidth:680px">Your CPA Career Starts Long Before Graduation</h1>
+      <p style="color:#DCE6F5;fontSize:17px;fontWeight:400;lineHeight:1.6;maxWidth:640px;margin:0 0 16px">CPA Ontario's Post-Secondary Ambassador Program gives Ontario college and university students a $10-a-year backstage pass to the accounting and business profession — real networking, real workshops, and a direct line to the firms that will eventually be hiring you.</p>
+      <p style="color:#B9C4D6;fontSize:15px;fontWeight:300;lineHeight:1.65;maxWidth:600px;margin:0 0 32px">Good grades open doors. What gets you through them is everything you build outside the classroom — the people you know, the way you carry yourself in a room, and whether you can explain, clearly and confidently, why you're worth hiring. PSAP exists to help you build all three, years before you're competing for your first internship.</p>
+      <div style="display:flex;gap:16px;flexWrap:wrap">
+        <a href="https://myportal.cpaontario.ca/s/lt-event?id=a1UMm000005Bl5ZMAS" style="background:#E0FE69;color:#002453;padding:14px 32px;borderRadius:999px;fontWeight:700;fontSize:14px;textTransform:uppercase;letterSpacing:0.05em;textDecoration:none">Join PSAP ›</a>
+        <a href="#events" style="background:transparent;color:#FFFFFF;padding:14px 32px;borderRadius:999px;fontWeight:700;fontSize:14px;textTransform:uppercase;letterSpacing:0.05em;textDecoration:none;border:2px solid rgba(255,255,255,0.5)">See What's Coming Up</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1170px;margin:0 auto;padding:80px 50px">
+    <h2 style="color:#002453;fontSize:30px;fontWeight:700;margin:0 0 20px">What Is PSAP?</h2>
+    <p style="fontSize:16px;fontWeight:300;lineHeight:1.75;color:#3D4344;maxWidth:760px;margin:0 0 16px">The Post-Secondary Ambassador Program is CPA Ontario's membership community for undergraduate students at Ontario colleges and universities. For $10 a year, members get access to a full calendar of networking events, skills workshops, competitions, and firm visits — most of which are invitation-only and unavailable to non-members.</p>
+    <p style="fontSize:16px;fontWeight:300;lineHeight:1.75;color:#3D4344;maxWidth:760px;margin:0 0 36px">It isn't only for students who've already decided to become a CPA. It's aimed just as much at students who are still figuring out what a business career could look like, and want low-pressure exposure to the people already living it.</p>
+    <div style="display:grid;gridTemplateColumns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
+      <div style="background:#F3F3F3;borderRadius:12px;padding:24px">
+        <div style="color:#003DA6;fontWeight:700;fontSize:12px;textTransform:uppercase;letterSpacing:0.06em;marginBottom:8px">Who It's For</div>
+        <div style="fontSize:15px;fontWeight:400;lineHeight:1.5">Any undergraduate at a Canadian college or university — not limited to accounting or business majors.</div>
+      </div>
+      <div style="background:#F3F3F3;borderRadius:12px;padding:24px">
+        <div style="color:#003DA6;fontWeight:700;fontSize:12px;textTransform:uppercase;letterSpacing:0.06em;marginBottom:8px">Cost</div>
+        <div style="fontSize:15px;fontWeight:400;lineHeight:1.5">$10 per year.</div>
+      </div>
+      <div style="background:#F3F3F3;borderRadius:12px;padding:24px">
+        <div style="color:#003DA6;fontWeight:700;fontSize:12px;textTransform:uppercase;letterSpacing:0.06em;marginBottom:8px">Where It Happens</div>
+        <div style="fontSize:15px;fontWeight:400;lineHeight:1.5">A mix of virtual sessions and in-person events across Ontario — Toronto, London, Kitchener-Waterloo, Ottawa, and more.</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#3D4344;padding:80px 50px">
+    <div style="max-width:1170px;margin:0 auto">
+      <h2 style="color:#FFFFFF;fontSize:30px;fontWeight:700;margin:0 0 32px">Why Students Join</h2>
+      <div style="display:grid;gridTemplateColumns:repeat(auto-fit,minmax(260px,1fr));gap:28px">
+        <sc-for list="{{whyJoin}}" as="reason" hint-placeholder-count="5">
+          <div style="display:flex;gap:14px;alignItems:flex-start">
+            <div style="width:10px;height:10px;borderRadius:50%;background:#E0FE69;marginTop:8px;flexShrink:0"></div>
+            <div style="color:#E5E8E9;fontSize:15px;fontWeight:300;lineHeight:1.65"><b style="color:#FFFFFF;fontWeight:700">{{reason.title}}</b> {{reason.rest}}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1170px;margin:0 auto;padding:80px 50px">
+    <h2 style="color:#002453;fontSize:30px;fontWeight:700;margin:0 0 20px">The PSAP Journey</h2>
+    <p style="fontSize:16px;fontWeight:300;lineHeight:1.75;color:#3D4344;maxWidth:760px;margin:0 0 16px">Most students join PSAP unsure of a few things: how to walk into a room full of strangers and actually network, how to turn what they're good at into a career story, and whether accounting is even the right path for them.</p>
+    <p style="fontSize:16px;fontWeight:300;lineHeight:1.75;color:#3D4344;maxWidth:760px;margin:0 0 32px">By the time members go through a few events, the pattern CPA Ontario sees again and again is the same: students who used to hang back at the edge of a networking event are the ones leading a session at the next one. That shift — from unsure to confident, from anonymous to known — is really the entire point of the program.</p>
+    <div style="background:#F3F3F3;borderLeft:4px solid #E0FE69;borderRadius:8px;padding:24px 28px">
+      <div style="fontSize:14px;fontWeight:700;color:#003DA6;textTransform:uppercase;letterSpacing:0.05em;marginBottom:8px">Student Voices — Coming Soon</div>
+      <div style="fontSize:15px;fontWeight:300;lineHeight:1.6;color:#3D4344">This is a natural spot for a quote or two from Schulich students who've been through PSAP — what changed for them after a few events.</div>
+    </div>
+  </section>
+
+  <section style="background:#F3F3F3;padding:80px 50px">
+    <div style="max-width:1170px;margin:0 auto">
+      <h2 style="color:#002453;fontSize:30px;fontWeight:700;margin:0 0 40px;textAlign:center">Three Ways PSAP Shows Up for You</h2>
+      <div style="display:grid;gridTemplateColumns:repeat(auto-fit,minmax(260px,1fr));gap:28px">
+        <sc-for list="{{threeWays}}" as="way" hint-placeholder-count="3">
+          <div style="background:#FFFFFF;borderRadius:12px;overflow:hidden;border:1px solid #D0D7DD">
+            <div style="height:160px;overflow:hidden"><img src="{{way.img}}" style="width:100%;height:100%;objectFit:cover;display:block" alt="{{way.title}}"></div>
+            <div style="padding:24px">
+              <div style="fontWeight:800;fontSize:19px;color:#002453;marginBottom:8px">{{way.title}}</div>
+              <div style="fontSize:15px;fontWeight:300;lineHeight:1.6;color:#3D4344">{{way.desc}}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="events" style="max-width:1170px;margin:0 auto;padding:80px 50px">
+    <h2 style="color:#002453;fontSize:30px;fontWeight:700;margin:0 0 12px">PSAP Events Calendar</h2>
+    <p style="fontSize:15px;fontWeight:300;color:#3D4344;maxWidth:700px;margin:0 0 40px;lineHeight:1.6">Each event links to CPA Ontario's live event page for current dates and registration status.</p>
+    <div style="display:grid;gridTemplateColumns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      <sc-for list="{{events}}" as="ev" hint-placeholder-count="9">
+        <div style="border:1px solid #D0D7DD;borderRadius:12px;padding:24px">
+          <div style="height:4px;width:36px;borderRadius:2px;background:#003DA6;marginBottom:16px"></div>
+          <div style="fontWeight:800;fontSize:17px;color:#002453;marginBottom:8px">{{ev.title}}</div>
+          <div style="fontSize:14px;fontWeight:300;lineHeight:1.6;color:#3D4344">{{ev.desc}}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#002453;padding:80px 50px">
+    <div style="max-width:1170px;margin:0 auto">
+      <h2 style="color:#FFFFFF;fontSize:30px;fontWeight:700;margin:0 0 16px">Board of Ambassadors</h2>
+      <p style="color:#DCE6F5;fontSize:16px;fontWeight:300;lineHeight:1.75;maxWidth:760px;margin:0 0 12px">PSAP's student leadership track. The Board of Ambassadors is made up of top undergraduate students representing more than 20 college and university campuses across Ontario. They act as an advisory and advocacy voice for the program, help plan and run events, and represent PSAP on their home campus.</p>
+      <p style="color:#7BF3FF;fontSize:15px;fontWeight:700;lineHeight:1.6;maxWidth:760px;margin:0 0 36px">Schulich currently has two students on the PSAP Board of Ambassadors.</p>
+      <div style="display:grid;gridTemplateColumns:repeat(auto-fit,minmax(160px,1fr));gap:24px;maxWidth:520px;marginBottom:36px">
+        <sc-for list="{{ambassadorSlots}}" as="slot" hint-placeholder-count="2">
+          <div>
+            <image-slot id="{{slot}}" shape="circle" style="width:120px;height:120px;marginBottom:12px" placeholder="Add ambassador photo"></image-slot>
+            <div style="color:#FFFFFF;fontSize:13px;fontWeight:300">Name, program</div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="color:#B9C4D6;fontSize:15px;fontWeight:300;lineHeight:1.6;maxWidth:700px;margin:0">Applications open on a yearly cycle. Active PSAP members are the ones eligible to apply, so joining PSAP first is the prerequisite if this is a track you want.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1170px;margin:0 auto;padding:80px 50px">
+    <h2 style="color:#002453;fontSize:30px;fontWeight:700;margin:0 0 32px">How to Join</h2>
+    <div style="display:flex;flexDirection:column;gap:20px;maxWidth:700px">
+      <sc-for list="{{joinSteps}}" as="step" hint-placeholder-count="4">
+        <div style="display:flex;gap:16px;alignItems:flex-start">
+          <div style="width:32px;height:32px;borderRadius:50%;background:#002453;color:#FFFFFF;fontWeight:700;fontSize:14px;display:flex;alignItems:center;justifyContent:center;flexShrink:0">{{step.n}}</div>
+          <div style="fontSize:15px;fontWeight:300;lineHeight:1.6;color:#3D4344;paddingTop:5px">{{step.text}}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#F3F3F3;padding:80px 50px">
+    <div style="max-width:900px;margin:0 auto">
+      <h2 style="color:#002453;fontSize:26px;fontWeight:700;margin:0 0 8px">Upcoming Info Sessions</h2>
+      <p style="fontSize:14px;fontWeight:300;color:#6F6F6F;margin:0 0 24px">Example block — CPA Ontario adds new sessions throughout the year. See the <a href="https://www.cpaontario.ca/become-a-cpa/post-secondary-student/information-session" style="color:#003DA6;fontWeight:700">live info session page</a> for the current list.</p>
+      <div style="background:#FFFFFF;borderRadius:12px;border:1px solid #D0D7DD;overflow:hidden">
+        <div style="display:grid;gridTemplateColumns:1fr 1.3fr 2.2fr;padding:12px 16px;borderBottom:1px solid #D0D7DD;fontWeight:700;fontSize:13px;color:#002453;textTransform:uppercase;letterSpacing:0.04em">
+          <div>Date</div><div>Time</div><div>Notes</div>
+        </div>
+        <sc-for list="{{infoSessions}}" as="sess" hint-placeholder-count="6">
+          <div style="display:grid;gridTemplateColumns:1fr 1.3fr 2.2fr;padding:12px 16px;borderBottom:1px solid #D0D7DD;fontSize:14px;color:#3D4344">
+            <div>{{sess.date}}</div><div>{{sess.time}}</div><div>{{sess.notes}}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:900px;margin:0 auto;padding:80px 50px">
+    <h2 style="color:#002453;fontSize:30px;fontWeight:700;margin:0 0 32px">FAQ</h2>
+    <div style="display:flex;flexDirection:column;gap:28px">
+      <sc-for list="{{faqs}}" as="faq" hint-placeholder-count="5">
+        <div>
+          <div style="fontWeight:700;fontSize:16px;color:#002453;marginBottom:6px">{{faq.q}}</div>
+          <div style="fontSize:15px;fontWeight:300;lineHeight:1.65;color:#3D4344">{{faq.a}}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#002453;padding:80px 50px">
+    <div style="max-width:700px;margin:0 auto;textAlign:center">
+      <h2 style="color:#FFFFFF;fontSize:32px;fontWeight:800;letterSpacing:-0.5px;margin:0 0 16px">Greatness Doesn't Wait for Graduation</h2>
+      <p style="color:#DCE6F5;fontSize:16px;fontWeight:300;lineHeight:1.65;margin:0 0 28px">Every CPA you'll meet through PSAP started exactly where you are now. The only difference is they started building their network before they needed it.</p>
+      <a href="https://myportal.cpaontario.ca/s/lt-event?id=a1UMm000005Bl5ZMAS" style="background:#E0FE69;color:#002453;padding:14px 32px;borderRadius:999px;fontWeight:700;fontSize:14px;textTransform:uppercase;letterSpacing:0.05em;textDecoration:none;display:inline-block">Join PSAP for $10 ›</a>
+    </div>
+  </section>
+</main>
+<dc-import name="Footer" hint-size="100%,300px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      whyJoin: [
+        { title: 'Build a network that outlasts your degree.', rest: 'Meet practicing CPAs, campus recruiters, and fellow student leaders from schools across Ontario — the kind of connections that turn into mentorships, referrals, and job offers.' },
+        { title: 'Practice the skills employers actually screen for.', rest: 'Workshops focused on communication, critical thinking, and problem-solving — the soft skills that are hardest to prove on a transcript.' },
+        { title: 'Add real substance to your resume.', rest: 'Event planning, leadership roles, and competition results give you concrete things to talk about in interviews, not just coursework.' },
+        { title: 'Join a community, not just a mailing list.', rest: 'PSAP members attend events together, and many describe it as the first place they found a peer group that took their career seriously.' },
+        { title: 'Grow into a leadership role.', rest: 'Active members can apply to the Board of Ambassadors — CPA Ontario\u2019s student leadership body — and go from attending events to running them.' },
+      ],
+      threeWays: [
+        { title: 'Inspire', img: 'assets/psap-inspire.avif', desc: 'Hear directly from CPAs working across industries — audit, tax, government, consulting, entrepreneurship — at conferences and events built to show you what the designation can actually lead to.' },
+        { title: 'Develop', img: 'assets/psap-develop.avif', desc: 'Workshops and competitions built around the skills firms say new grads are missing: case analysis, decision-making under pressure, and clear communication.' },
+        { title: 'Connect', img: 'assets/psap-connect.avif', desc: 'Firm visits, networking nights, and flagship events like CareerFest exist for one reason — to put you in the room with the people who do the hiring.' },
+      ],
+      events: [
+        { title: 'Info Sessions', desc: 'Roughly monthly, hour-long virtual sessions that walk through the CPA path and what PSAP offers, with live Q&A — no commitment required.' },
+        { title: 'Chartered for Success', desc: 'CPA Ontario\u2019s flagship annual conference, held virtually. Hear from CPAs, then move into hands-on workshops. A good first event for anyone still deciding.' },
+        { title: 'Fall Case Competition', desc: 'Built for 1st- and 2nd-year students. A prep workshop first, then teams present to a panel of CPA judges and get scored on their analysis.' },
+        { title: 'Discovery Days', desc: 'Behind-the-scenes office visits with major employers, paired with a recruiter Q&A and a networking/LinkedIn prep workshop.' },
+        { title: 'Network with Confidence', desc: 'A fall event, held in multiple cities, built entirely around practicing the skill most students say they dread most: working a room.' },
+        { title: 'PSAP Prestige', desc: 'An invite-only evening for upper-year students to meet CPAs at the senior executive and partner level.' },
+        { title: 'Firms Day', desc: 'A virtual, self-directed career fair — explore participating firms at your own pace, with prizes for visiting the most.' },
+        { title: 'CareerFest', desc: 'Held every February at CPA Ontario\u2019s Toronto office — speed-mentoring style conversations with CPAs across the full range of career paths.' },
+        { title: 'PSAP Skills Modules', desc: 'Self-paced online modules on problem solving, decision making, and critical thinking — each earning a LinkedIn badge on completion.' },
+      ],
+      ambassadorSlots: ['ambassador-1', 'ambassador-2'],
+      joinSteps: [
+        { n: 1, text: 'Open the PSAP registration portal.' },
+        { n: 2, text: 'Click Register, then Log in (create a free CPA Ontario portal account if you don\u2019t already have one).' },
+        { n: 3, text: 'Once logged in, complete registration and pay the $10 annual membership fee.' },
+        { n: 4, text: 'You\u2019re in — start registering for individual events from the same portal.' },
+      ],
+      infoSessions: [
+        { date: 'Sept 17, 2026', time: '12:00\u20131:00 PM', notes: 'Live Q&A with a CPA Ontario student engagement specialist' },
+        { date: 'Oct 13, 2026', time: '12:00\u20131:00 PM', notes: 'Live Q&A with a CPA Ontario student engagement specialist' },
+        { date: 'Oct 27, 2026', time: '12:00\u20131:00 PM', notes: 'Live Q&A with a CPA Ontario student engagement specialist' },
+        { date: 'Nov 10, 2026', time: '12:00\u20131:00 PM', notes: 'Live Q&A with a CPA Ontario student engagement specialist' },
+        { date: 'Nov 26, 2026', time: '12:00\u20131:00 PM', notes: 'Live Q&A with a CPA Ontario student engagement specialist' },
+        { date: 'Dec 8, 2026', time: '12:00\u20131:00 PM', notes: 'Live Q&A with a CPA Ontario student engagement specialist' },
+      ],
+      faqs: [
+        { q: 'Do I need to be an accounting or business student to join?', a: 'No. PSAP is open to undergraduates in any program at a Canadian college or university.' },
+        { q: 'Is $10 really the only cost?', a: 'That covers the annual membership. Some individual events may have their own costs or capacity limits, so check each event page.' },
+        { q: 'I\u2019m only in first year — is it too early?', a: 'It\u2019s arguably the ideal time. Several events, including the Fall Case Competition, are built specifically for 1st- and 2nd-year students, and starting early means more time to build the network before you\u2019re job-hunting.' },
+        { q: 'What happens after I sign up?', a: 'You\u2019ll get access to the event portal, where you can register for individual sessions as they open throughout the year.' },
+        { q: 'How do I get more involved than just attending events?', a: 'Apply to the Board of Ambassadors once applications open for the year — it\u2019s the leadership track built directly on top of PSAP membership.' },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

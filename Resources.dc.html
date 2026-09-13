@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif; color: #3D4344; }
+  a { color: #002453; }
+  a:hover { color: #003DA6; }
+</style>
+</helmet>
+<dc-import name="Header" active-page="Resources" hint-size="100%,72px"></dc-import>
+<main>
+  <div style="max-width:1170px;margin:0 auto;padding:32px 50px 0">
+    <div style="fontSize:13px;color:#6F6F6F;marginBottom:16px"><a href="Home.dc.html" style="color:#6F6F6F;textDecoration:none">Home</a> / Resources</div>
+    <h1 style="color:#003DA6;fontSize:44px;fontWeight:800;letterSpacing:-1px;margin:0 0 48px">Resources</h1>
+  </div>
+
+  <section style="max-width:1170px;margin:0 auto;padding:0 50px 96px;display:grid;gridTemplateColumns:260px 1fr;gap:56px">
+    <aside>
+      <div style="display:flex;flexDirection:column;gap:2px;marginBottom:24px">
+        <sc-for list="{{categories}}" as="cat" hint-placeholder-count="5">
+          <a href="#" style="padding:10px 14px;borderRadius:8px;fontWeight:700;fontSize:14px;textDecoration:none;{{cat.style}}">» {{cat.label}}</a>
+        </sc-for>
+      </div>
+      <div style="background:#002453;borderRadius:12px;padding:24px">
+        <div style="color:#FFFFFF;fontWeight:700;fontSize:15px;marginBottom:8px">Need help?</div>
+        <div style="color:#C7D3E6;fontSize:13px;fontWeight:300;lineHeight:1.6;marginBottom:16px">Book time with an exec for 1:1 advice.</div>
+        <a href="mailto:cpassa@schulich.yorku.ca" style="background:#E0FE69;color:#002453;padding:8px 16px;borderRadius:999px;fontWeight:700;fontSize:11px;textTransform:uppercase;letterSpacing:0.05em;textDecoration:none;display:inline-block">Contact Us</a>
+      </div>
+    </aside>
+
+    <div style="display:flex;flexDirection:column;gap:20px">
+      <sc-for list="{{resources}}" as="res" hint-placeholder-count="5">
+        <div style="border:1px solid #D0D7DD;borderRadius:12px;padding:24px;display:flex;justifyContent:space-between;alignItems:center;gap:20px">
+          <div>
+            <div style="fontSize:11px;fontWeight:700;color:{{res.color}};textTransform:uppercase;letterSpacing:0.05em;marginBottom:8px">{{res.tag}}</div>
+            <div style="fontWeight:700;fontSize:17px;color:#002453;marginBottom:6px">{{res.title}}</div>
+            <div style="fontSize:14px;fontWeight:300;lineHeight:1.6;color:#3D4344">{{res.desc}}</div>
+          </div>
+          <a href="#" style="fontWeight:700;fontSize:14px;color:#003DA6;textDecoration:none;whiteSpace:nowrap">View ›</a>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</main>
+<dc-import name="Footer" hint-size="100%,300px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const catLabels = ['Resume & Cover Letters', 'Interview Prep', 'CPA PEP Pathway', 'Networking Tips', 'Case Competition Archive'];
+    const categories = catLabels.map((label, i) => ({
+      label,
+      style: i === 0 ? 'background:#E0FE69;color:#002453' : 'color:#003DA6',
+    }));
+    return {
+      categories,
+      resources: [
+        { title: 'Resume & Cover Letter Guide', tag: 'Career Prep', color: '#003DA6', desc: 'Templates and tips reviewed by upper-year students.' },
+        { title: 'Interview Prep Kit', tag: 'Career Prep', color: '#0D7341', desc: 'Common questions and how to structure your answers.' },
+        { title: 'CPA PEP Pathway Explained', tag: 'CPA PEP', color: '#6D3885', desc: 'A breakdown of the modules, exams, and timelines.' },
+        { title: 'Networking Tips', tag: 'Networking', color: '#A12B4E', desc: 'How to make the most of Meet the Firms Night and info sessions.' },
+        { title: 'Past Case Competition Archive', tag: 'Competitions', color: '#002453', desc: 'Previous case packages and winning approaches.' },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

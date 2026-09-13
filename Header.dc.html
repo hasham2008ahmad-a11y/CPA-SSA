@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="background:#FFFFFF;borderBottom:1px solid #D0D7DD;position:relative;zIndex:20">
+  <div style="max-width:1170px;margin:0 auto;padding:18px 50px;display:flex;alignItems:center;justifyContent:space-between;gap:20px;flexWrap:wrap">
+    <a href="Home.dc.html" style="fontSize:22px;fontWeight:800;color:#002453;textDecoration:none;letterSpacing:-0.6px">CPA SSA</a>
+    <nav style="display:flex;alignItems:center;gap:4px;flexWrap:wrap">
+      <sc-for list="{{navItems}}" as="item" hint-placeholder-count="6">
+        <a href="{{item.href}}" style="{{item.style}}">{{item.label}}</a>
+      </sc-for>
+    </nav>
+    <a href="Membership.dc.html" style="background:#002453;color:#FFFFFF;padding:10px 24px;borderRadius:999px;fontWeight:700;fontSize:13px;letterSpacing:0.05em;textTransform:uppercase;textDecoration:none;border:2px solid #002453;transition:all 0.15s" style-hover="background:#FFFFFF;color:#002453">Join</a>
+  </div>
+</header>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;activePage&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const active = this.props.activePage || 'Home';
+    const items = [
+      { label: 'Home', href: 'Home.dc.html' },
+      { label: 'About', href: 'About.dc.html' },
+      { label: 'Team', href: 'Team.dc.html' },
+      { label: 'Events', href: 'Events.dc.html' },
+      { label: 'PSAP', href: 'PSAP.dc.html' },
+      { label: 'Membership', href: 'Membership.dc.html' },
+      { label: 'Resources', href: 'Resources.dc.html' },
+    ].map(i => ({
+      ...i,
+      style: {
+        padding: '8px 14px',
+        borderRadius: '999px',
+        fontWeight: 700,
+        fontSize: '15px',
+        textDecoration: 'none',
+        color: i.label === active ? '#002453' : '#003DA6',
+        background: i.label === active ? '#E0FE69' : 'transparent',
+      },
+    }));
+    return { navItems: items };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif; color: #3D4344; }
+  a { color: #002453; }
+  a:hover { color: #003DA6; }
+</style>
+</helmet>
+<dc-import name="Header" active-page="Membership" hint-size="100%,72px"></dc-import>
+<main>
+  <div style="max-width:1170px;margin:0 auto;padding:32px 50px 0">
+    <div style="fontSize:13px;color:#6F6F6F;marginBottom:16px"><a href="Home.dc.html" style="color:#6F6F6F;textDecoration:none">Home</a> / Membership</div>
+    <h1 style="color:#003DA6;fontSize:44px;fontWeight:800;letterSpacing:-1px;margin:0 0 48px">Membership</h1>
+  </div>
+
+  <section style="max-width:1170px;margin:0 auto;padding:0 50px 96px;display:grid;gridTemplateColumns:260px 1fr;gap:56px">
+    <aside>
+      <div style="display:flex;flexDirection:column;gap:2px;marginBottom:24px">
+        <a href="#overview" style="padding:10px 14px;borderRadius:8px;background:#E0FE69;color:#002453;fontWeight:700;fontSize:14px;textDecoration:none">» Overview</a>
+        <a href="#benefits" style="padding:10px 14px;borderRadius:8px;color:#003DA6;fontWeight:700;fontSize:14px;textDecoration:none">» Benefits</a>
+        <a href="#join" style="padding:10px 14px;borderRadius:8px;color:#003DA6;fontWeight:700;fontSize:14px;textDecoration:none">» How to Join</a>
+        <a href="#faq" style="padding:10px 14px;borderRadius:8px;color:#003DA6;fontWeight:700;fontSize:14px;textDecoration:none">» FAQ</a>
+      </div>
+      <div style="background:#002453;borderRadius:12px;padding:24px">
+        <div style="color:#FFFFFF;fontWeight:700;fontSize:15px;marginBottom:8px">Questions?</div>
+        <div style="color:#C7D3E6;fontSize:13px;fontWeight:300;lineHeight:1.6;marginBottom:16px">Email us and an exec will get back to you.</div>
+        <a href="mailto:cpassa@schulich.yorku.ca" style="background:#E0FE69;color:#002453;padding:8px 16px;borderRadius:999px;fontWeight:700;fontSize:11px;textTransform:uppercase;letterSpacing:0.05em;textDecoration:none;display:inline-block">Email Us</a>
+      </div>
+    </aside>
+
+    <div>
+      <div id="overview" style="marginBottom:56px">
+        <h2 style="color:#002453;fontSize:24px;fontWeight:700;margin:0 0 12px">Overview</h2>
+        <p style="fontSize:16px;fontWeight:300;lineHeight:1.75;color:#3D4344;margin:0 0 24px">Membership is free and open to all Schulich students interested in accounting or the CPA designation, regardless of year or program.</p>
+        <a href="#join" style="background:#E0FE69;color:#002453;padding:14px 32px;borderRadius:999px;fontWeight:700;fontSize:14px;textTransform:uppercase;letterSpacing:0.05em;textDecoration:none;display:inline-block">Join Now</a>
+      </div>
+
+      <div id="benefits" style="marginBottom:56px">
+        <h2 style="color:#002453;fontSize:24px;fontWeight:700;margin:0 0 20px">Benefits</h2>
+        <div style="display:grid;gridTemplateColumns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+          <sc-for list="{{benefits}}" as="benefit" hint-placeholder-count="4">
+            <div style="display:flex;gap:12px;alignItems:flex-start">
+              <div style="width:10px;height:10px;borderRadius:50%;background:#0D7341;marginTop:8px;flexShrink:0"></div>
+              <div style="fontSize:15px;fontWeight:300;lineHeight:1.6;color:#3D4344">{{benefit}}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div id="join" style="marginBottom:56px">
+        <h2 style="color:#002453;fontSize:24px;fontWeight:700;margin:0 0 20px">How to Join</h2>
+        <div style="display:flex;flexDirection:column;gap:20px">
+          <sc-for list="{{steps}}" as="step" hint-placeholder-count="3">
+            <div style="display:flex;gap:16px;alignItems:flex-start">
+              <div style="width:32px;height:32px;borderRadius:50%;background:#002453;color:#FFFFFF;fontWeight:700;fontSize:14px;display:flex;alignItems:center;justifyContent:center;flexShrink:0">{{step.n}}</div>
+              <div style="fontSize:15px;fontWeight:300;lineHeight:1.6;color:#3D4344;paddingTop:5px">{{step.text}}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <div id="faq">
+        <h2 style="color:#002453;fontSize:24px;fontWeight:700;margin:0 0 20px">FAQ</h2>
+        <div style="display:flex;flexDirection:column;gap:24px">
+          <sc-for list="{{faqs}}" as="faq" hint-placeholder-count="3">
+            <div>
+              <div style="fontWeight:700;fontSize:15px;color:#002453;marginBottom:6px">{{faq.q}}</div>
+              <div style="fontSize:15px;fontWeight:300;lineHeight:1.6;color:#3D4344">{{faq.a}}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<dc-import name="Footer" hint-size="100%,300px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      benefits: [
+        'Mentorship from upper-year students and CPA members',
+        'Access to case competitions and networking events',
+        'Resume and interview prep workshops',
+        'A direct line into the CPA PEP pathway',
+      ],
+      steps: [
+        { n: 1, text: 'Fill out the sign-up form on this page' },
+        { n: 2, text: 'Come to a General Meeting or orientation event' },
+        { n: 3, text: 'Join our mailing list and Discord to stay in the loop' },
+      ],
+      faqs: [
+        { q: 'Is there a membership fee?', a: 'No, membership is free for all Schulich students.' },
+        { q: 'Do I need to be an Accounting major?', a: 'No, any Schulich student interested in accounting or CPA is welcome.' },
+        { q: 'Can first-years join?', a: 'Yes, we especially encourage first-years to get involved early.' },
+      ],
+    };
+  }
+}
+
+</script>
+</body>
+</html>

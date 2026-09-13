@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; font-family: 'Plus Jakarta Sans', Arial, Helvetica, sans-serif; color: #3D4344; }
+  a { color: #002453; }
+  a:hover { color: #003DA6; }
+</style>
+</helmet>
+<dc-import name="Header" active-page="Team" hint-size="100%,72px"></dc-import>
+<main>
+  <div style="max-width:1170px;margin:0 auto;padding:32px 50px 0">
+    <div style="fontSize:13px;color:#6F6F6F;marginBottom:16px"><a href="Home.dc.html" style="color:#6F6F6F;textDecoration:none">Home</a> / Team</div>
+    <h1 style="color:#003DA6;fontSize:44px;fontWeight:800;letterSpacing:-1px;margin:0 0 12px">Meet the Team</h1>
+    <p style="fontSize:16px;fontWeight:300;color:#3D4344;maxWidth:640px;margin:0 0 48px;lineHeight:1.6">The association is run entirely by student volunteers across every year of the program.</p>
+  </div>
+  <section style="max-width:1170px;margin:0 auto;padding:0 50px 96px">
+    <div style="display:grid;gridTemplateColumns:repeat(auto-fit,minmax(220px,1fr));gap:36px">
+      <sc-for list="{{members}}" as="item" hint-placeholder-count="8">
+        <div>
+          <image-slot id="{{item.slotId}}" shape="circle" style="width:88px;height:88px;marginBottom:16px" placeholder="Add photo"></image-slot>
+          <div style="fontWeight:700;fontSize:17px;color:#002453;marginBottom:4px">{{item.name}}</div>
+          <div style="fontWeight:700;fontSize:12px;color:#003DA6;textTransform:uppercase;letterSpacing:0.05em;marginBottom:8px">{{item.role}}</div>
+          <div style="fontSize:14px;fontWeight:300;lineHeight:1.6;color:#3D4344">{{item.blurb}}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+</main>
+<dc-import name="Footer" hint-size="100%,300px"></dc-import>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const colors = ['#003DA6', '#0D7341', '#6D3885', '#002453'];
+    const members = [
+      { name: 'Jordan Lee', role: 'President', blurb: 'Third-year Accounting, oversees strategy and CPA Ontario liaison.' },
+      { name: 'Priya Anand', role: 'VP Finance', blurb: 'Manages the budget, sponsorships, and event finances.' },
+      { name: 'Marcus Chen', role: 'VP Events', blurb: 'Plans case competitions, socials, and info sessions.' },
+      { name: 'Sofia Petrova', role: 'VP Marketing', blurb: 'Runs the association\u2019s socials and outreach.' },
+      { name: 'Ahmed Hassan', role: 'VP Professional Development', blurb: 'Organizes workshops and CPA PEP resources.' },
+      { name: 'Grace Wu', role: 'VP Corporate Relations', blurb: 'Builds relationships with firms and employers.' },
+      { name: 'Ben Ferraro', role: 'Director of Communications', blurb: 'Handles newsletters and member communication.' },
+      { name: 'Layla Osman', role: 'Director of First-Year Relations', blurb: 'Supports incoming students and orientation.' },
+    ].map((m, i) => ({ ...m, color: colors[i % colors.length], slotId: 'member-' + i }));
+    return { members };
+  }
+}
+
+</script>
+</body>
+</html>
