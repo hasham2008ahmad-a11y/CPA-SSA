@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YorkU ACE Design System</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@600&display=swap">
+<link rel="stylesheet" href="../tokens/tokens.css">
+<link rel="stylesheet" href="../components/components.css">
+<style>
+  body { margin: 0; padding: 48px 24px; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
+  .yu-swatch { width: 72px; height: 72px; border-radius: var(--radius-md); border: 1px solid var(--border); display: flex; align-items: flex-end; padding: 8px; }
+  .yu-row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .yu-theme-toggle { position: fixed; top: 16px; right: 16px; }
+</style>
+</head>
+<body>
+  <button class="yu-btn yu-btn--secondary yu-theme-toggle" id="themeToggle">Toggle dark mode</button>
+
+  <div>
+    <div class="h1">YorkU ACE</div>
+    <div class="body" style="color:var(--ink-muted);max-width:520px;">Dark blue and light blue for every chapter page and post; ACE Canada red reserved for the moments that are explicitly national.</div>
+  </div>
+
+  <div>
+    <div class="h3">Colour</div>
+    <div class="yu-row">
+      <div class="yu-swatch" style="background:var(--brand-primary);"><span class="caption" style="color:var(--brand-primary-ink);">primary</span></div>
+      <div class="yu-swatch" style="background:var(--brand-secondary);"><span class="caption" style="color:var(--brand-primary-ink);">secondary</span></div>
+      <div class="yu-swatch" style="background:var(--national-accent);"><span class="caption" style="color:var(--national-accent-ink);">national</span></div>
+      <div class="yu-swatch" style="background:var(--success);"><span class="caption" style="color:#fff;">success</span></div>
+      <div class="yu-swatch" style="background:var(--warning);"><span class="caption" style="color:#fff;">warning</span></div>
+      <div class="yu-swatch" style="background:var(--danger);"><span class="caption" style="color:#fff;">danger</span></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="h3">Buttons</div>
+    <div class="yu-row">
+      <button class="yu-btn yu-btn--primary">Register</button>
+      <button class="yu-btn yu-btn--secondary">Learn more</button>
+      <button class="yu-btn yu-btn--national">ACE Canada Nationals</button>
+    </div>
+  </div>
+
+  <div>
+    <div class="h3">Badges</div>
+    <div class="yu-row">
+      <span class="yu-badge">Case Competition</span>
+      <span class="yu-badge">Info Session</span>
+      <span class="yu-badge yu-badge--national">ACE Canada National Event</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="h3">Stat tiles</div>
+    <div class="yu-row">
+      <div class="yu-stat">
+        <span class="yu-stat__value stat">212</span>
+        <span class="yu-stat__label label">Active Members</span>
+      </div>
+      <div class="yu-stat">
+        <span class="yu-stat__value stat">1st</span>
+        <span class="yu-stat__label label">Nationals Placement, 2025</span>
+      </div>
+      <div class="yu-stat">
+        <span class="yu-stat__value stat">$18.4k</span>
+        <span class="yu-stat__label label">Raised in Sponsorship</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      var root = document.documentElement;
+      root.setAttribute('data-theme', root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>

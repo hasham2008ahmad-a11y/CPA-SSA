@@ -1,0 +1,68 @@
+/* YorkU ACE Design System — component styles. Load after tokens.css. */
+
+.yu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.yu-btn--primary {
+  background: var(--brand-primary);
+  color: var(--brand-primary-ink);
+}
+
+.yu-btn--secondary {
+  background: transparent;
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.yu-btn--national {
+  background: var(--national-accent);
+  color: var(--national-accent-ink);
+}
+
+.yu-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: var(--brand-secondary-tint);
+  color: var(--brand-primary);
+  font-family: var(--font-sans);
+}
+
+.yu-badge--national {
+  background: var(--national-accent);
+  color: var(--national-accent-ink);
+}
+
+.yu-stat {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background: var(--surface-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  min-width: 180px;
+}
+
+.yu-stat__value {
+  color: var(--brand-primary);
+}
+
+.yu-stat__label {
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
